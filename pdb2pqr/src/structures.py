@@ -45,11 +45,14 @@
 
 """
 
+from __future__ import print_function
+
 __date__ = "28 February 2006"
 __author__ = "Todd Dolinsky"
 
 BACKBONE = ["N","CA","C","O","O2","HA","HN","H","tN"]
 
+import sys
 import string
 from .pdb import *
 from .utilities import *
@@ -646,6 +649,9 @@ class Atom(ATOM):
             tstr = self.chainID
         else:
             tstr = ''
+        if len(tstr) > 1:
+            print("WARNING: Truncating multi-letter chain ID '{}'".format(tstr),
+                    file=sys.stderr)
         outstr += str.ljust(tstr, 1)[:1]
         tstr = "%d" % self.resSeq
         outstr += str.rjust(tstr, 4)[:4]

@@ -53,6 +53,23 @@ from .structures import *
 from .aa import *
 from .na import *
 
+
+def make_chain_id(number, suffix=''):
+    """
+    Use any non-line-breaking printables to enumerate chains.
+    Make multi-character IDs if needed.
+    """
+    letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz" \
+            '!#$%&()*+,-./:;<=>?@[]^_`{|}~' \
+            '\'\"\\' \
+            ' \t'
+    i = number % len(letters)
+    ID = letters[i] + suffix
+    if i != number:
+        return make_chain_id(number // len(letters) - 1, ID)
+    return ID
+
+
 class Protein:
     """
         Protein class
@@ -93,7 +110,7 @@ class Protein:
 
                 if record.chainID == "" and numChains > 1 and record.resName not in ["WAT","HOH"]:
                     # Assign a chain ID
-                    record.chainID = string.ascii_uppercase[count]
+                    record.chainID = make_chain_id(count)
 
                 chainID = record.chainID
                 resSeq = record.resSeq
@@ -144,7 +161,8 @@ class Protein:
         # Make a list for sequential ordering of chains
         
         if "" in chainDict:
-            chainDict["ZZ"] = chainDict[""]
+            key = max(chainDict) + "Z"
+            chainDict[key] = chainDict[""]
             del chainDict[""]
 
         keys = list(chainDict.keys())
