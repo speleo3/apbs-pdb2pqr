@@ -622,7 +622,8 @@ class Protein:
           return self.property["pH-opt"]
         else:
           profile = self.getFoldingProfile(reference=reference, direction=direction, grid=grid, options=options)
-          dG_opt = 999.
+          dG_opt = 9999.
+          pH_opt = None
           for pH, dG in profile:
             if dG < dG_opt:
               pH_opt = pH; dG_opt = dG
