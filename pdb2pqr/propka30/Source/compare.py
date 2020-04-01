@@ -37,7 +37,7 @@
 #   Journal of Chemical Theory and Computation, 7, 525-537 (2011)
 #-------------------------------------------------------------------------------------------------------
 import  sys, math, string
-from lib import int2roman, convertResidueCode, pka_print
+from .lib import int2roman, convertResidueCode, pka_print
 
 
 def compareFoldingContributions(target=None, template=None, options=None):
@@ -48,7 +48,7 @@ def compareFoldingContributions(target=None, template=None, options=None):
     4. calculate the difference
     5. printout sorted result
     """
-    from mutate import readAlignmentFiles
+    from .mutate import readAlignmentFiles
 
     # checking that pKa values are available
     checkDonePKA(target, template)

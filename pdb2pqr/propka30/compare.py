@@ -39,7 +39,7 @@
 
 import math
 #import data
-from Source.lib import pka_print
+from .Source.lib import pka_print
 
 if False:
     def compareWithExperiment(protein, file=None, list=None, set=None, label="ALL", **argv):

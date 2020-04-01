@@ -37,10 +37,10 @@
 #   Journal of Chemical Theory and Computation, 7, 525-537 (2011)
 #-------------------------------------------------------------------------------------------------------
 import string
-import lib
-import calculator as calculate
+from . import lib
+from . import calculator as calculate
 
-from lib import pka_print
+from .lib import pka_print
 
 
 def interactionMatrix(interaction):

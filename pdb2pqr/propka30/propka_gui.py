@@ -39,10 +39,10 @@
 #-------------------------------------------------------------------------------------------------------
 
 import string, re, sys, os, math
-import Source.version as propka
-import Source.lib as lib
-from Source.protein import Protein
-from Source.mutate import makeCompositeAtomsDictionary
+from .Source import version as propka
+from .Source import lib
+from .Source.protein import Protein
+from .Source.mutate import makeCompositeAtomsDictionary
 pka_print = lib.pka_print
 
 

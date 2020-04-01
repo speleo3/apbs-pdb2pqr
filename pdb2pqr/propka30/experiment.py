@@ -40,7 +40,7 @@
 
  
 import string, sys, copy, math
-from Source.lib import pka_print
+from .Source.lib import pka_print
 
 
 def getCatchAllCompareWithExperiment(argv):

@@ -40,7 +40,7 @@
 
 
 import math, os, sys, random
-from lib import pka_print
+from .lib import pka_print
 
 
 def generateCorrespondingAtoms():

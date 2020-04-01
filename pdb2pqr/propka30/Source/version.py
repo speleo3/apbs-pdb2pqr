@@ -38,9 +38,9 @@
 #-------------------------------------------------------------------------------------------------------
 
 import math
-import lib
+from . import lib
 import sys, os
-import calculator as calculate
+from . import calculator as calculate
 pka_print = lib.pka_print
 
 
@@ -457,7 +457,7 @@ class Version(object):
         """
         setting the Coulomb model, and its parameters. If parameter is not defined, it will take the default from 'parameters.py'
         """
-        import parameters_new as parameters
+        from . import parameters_new as parameters
         coulomb_parameters = parameters.getCoulombParameters()
         if label not in coulomb_parameters:
           pka_print("do not accept Coulomb model \"%s\\n" % (label))
@@ -494,7 +494,7 @@ class Version(object):
         """
         setting the desolvation model, and its parameters
         """
-        import parameters_new as parameters
+        from . import parameters_new as parameters
         desolvation_parameters = parameters.getDesolvationParameters()
         if label not in desolvation_parameters:
           pka_print("do not accept solvation model \"%s\\n" % (label))
@@ -661,7 +661,7 @@ class Jan01(Version):
         """
         Rules of action for version Jan01
         """
-        import parameters_std as parameters
+        from . import parameters_std as parameters
     
         self.name             = "Jan01"
         self.Nmin             =  300
@@ -750,7 +750,7 @@ class Jan15(Version):
         """
         Rules of action for version Jan15
         """
-        import parameters_std as parameters
+        from . import parameters_std as parameters
 
         self.name             = "Jan15"
         self.Nmin             =  300
@@ -839,7 +839,7 @@ class May13(Version):
         """
         Rules of action for version May13
         """
-        import parameters_std as parameters
+        from . import parameters_std as parameters
 
         self.name             = "May13"
         self.coulomb_cutoff =   7.00
@@ -869,7 +869,7 @@ class Dec18(Version):
         """
         Rules of action for version Dec18
         """
-        import parameters_std as parameters
+        from . import parameters_std as parameters
 
         self.name             = "Dec18"
         self.Nmin             =  300
@@ -925,7 +925,7 @@ class Dec19(Version):
         """
         Rules of action for version Dec19
         """
-        import parameters_std as parameters
+        from . import parameters_std as parameters
         
         self.name             = "Dec19"
         self.Nmin             =  300
@@ -981,7 +981,7 @@ class Aug24(Version):
         """
         Rules of action for version Aug24
         """
-        import parameters_new as parameters
+        from . import parameters_new as parameters
 
         self.name             = "Aug24"
         self.Nmin             =  280
@@ -1009,7 +1009,7 @@ class Aug30(Version):
         """
         Rules of action for version Aug30
         """
-        import parameters_new as parameters
+        from . import parameters_new as parameters
 
         self.name             = "Aug30"
         self.Nmin             =  280
@@ -1037,7 +1037,7 @@ class Aug31(Version):
         """
         Rules of action for version Aug31
         """
-        import parameters_new as parameters
+        from . import parameters_new as parameters
 
         self.name             = "Aug31"
         self.Nmin             =  280
@@ -1065,7 +1065,7 @@ class Sep05(Version):
         """
         Rules of action for version Sep05
         """
-        import parameters_new as parameters
+        from . import parameters_new as parameters
 
         self.name             = "Sep05"
         self.Nmin             =  280
@@ -1093,7 +1093,7 @@ class Sep06(Version):
         """
         Rules of action for version Sep06
         """
-        import parameters_new as parameters
+        from . import parameters_new as parameters
 
         self.name             = "Sep06"
         self.Nmin             =  280
@@ -1121,7 +1121,7 @@ class Sep07(Version):
         """
         Rules of action for version Sep07
         """
-        import parameters_new as parameters
+        from . import parameters_new as parameters
 
         self.name             = "Sep07"
         self.Nmin             =  280
@@ -1149,7 +1149,7 @@ class Sep08(Version):
         """
         Rules of action for version Sep08
         """
-        import parameters_new as parameters
+        from . import parameters_new as parameters
 
         self.name             = "Sep08"
         self.Nmin             =  280
@@ -1177,7 +1177,7 @@ class Oct13(Version):
         """
         Rules of action for version Oct13, based on Sep07
         """
-        import parameters_new as parameters
+        from . import parameters_new as parameters
 
         self.name             = "Oct13"
         self.Nmin             =  280
@@ -1309,7 +1309,7 @@ class Oct14(Version):
         """
         Rules of action for version Oct14
         """
-        import parameters_new as parameters
+        from . import parameters_new as parameters
 
         self.name             = "Oct14"
         self.Nmin             =  280
@@ -1337,7 +1337,7 @@ class Nov28(Version):
         """
         Rules of action for version Oct14
         """
-        import parameters_new as parameters
+        from . import parameters_new as parameters
 
         self.name             = "Nov28"
         self.Nmin             =  280
@@ -1365,7 +1365,7 @@ class Nov29(Version):
         """
         Rules of action for version Nov29
         """
-        import parameters_new as parameters
+        from . import parameters_new as parameters
 
         self.name             = "Nov29"
         self.Nmin             =  280
@@ -1393,7 +1393,7 @@ class Nov30(Version):
         """
         Rules of action for version Nov30
         """
-        import parameters_new as parameters
+        from . import parameters_new as parameters
 
         self.name             = "Nov30"
         self.Nmin             =  280

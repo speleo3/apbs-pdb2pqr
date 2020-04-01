@@ -38,10 +38,10 @@
 #-------------------------------------------------------------------------------------------------------
 import math, os, sys, re
 
-import lib
+from . import lib
 pka_print = lib.pka_print
-import output
-import pdb
+from . import output
+from . import pdb
 #import debug
 
 
@@ -163,7 +163,7 @@ def makeMutatedProtein(protein, mutation=None, atoms=None, alignment=None, optio
     """
     returning a new protein, mutation approach determined from options.mutator
     """
-    from protein import Protein
+    from .protein import Protein
     pka_print("mutator: %s" % (options.mutator.label))
     pka_print("type: %s\n" % (options.mutator.type))
 
@@ -174,9 +174,9 @@ def makeMutatedProtein(protein, mutation=None, atoms=None, alignment=None, optio
         alignment = readAlignmentFiles(filenames=options.alignment, mesophile=protein.name, options=options)
       pdbcode, rest = splitStringMutationInTwo(mutation)
       if pdbcode == None:
-        mutation = remakeStringMutation(mutation, protein.atoms.keys())
+        mutation = remakeStringMutation(mutation, list(protein.atoms.keys()))
       else:
-        mutation = remakeStringMutation(mutation, protein.atoms.keys(), atoms[pdbcode].keys())
+        mutation = remakeStringMutation(mutation, list(protein.atoms.keys()), list(atoms[pdbcode].keys()))
       dict_mutation = recastIntoDictionary(mutation, alignment=alignment, protein=protein)
     elif isinstance(mutation, dict):
       # this is already in dictionary-format
@@ -1010,8 +1010,8 @@ def mutateAtomsDictionaryUsingOverlap(protein=None, atoms=None, mutation=None, o
     """
     This routine overlaps two residues based on an array of atom labels, 'center'
     """
-    from corresponding_atoms import makeCorrespondingAtomNames
-    from rotate import rotatePosition, translatePosition, makeCrossProduct, calculateVectorLength, \
+    from .corresponding_atoms import makeCorrespondingAtomNames
+    from .rotate import rotatePosition, translatePosition, makeCrossProduct, calculateVectorLength, \
                               makeScalarProduct, generateRandomDisplacement, generateRandomRotation, rotateAtoms, translateAtoms
 
     # create copy of target
@@ -1201,7 +1201,7 @@ def makeMutationLight(original_protein=None, template_protein=None, mutation=Non
     translate = dictionary for translating target and template residues to the origin
     center    = array with atom names in 'position-dictionary': used for 'rotation-center'
     """
-    from rotate import rotatePosition, translatePosition, makeCrossProduct, calculateVectorLength, makeScalarProduct, generateRandomDisplacement, generateRandomRotation
+    from .rotate import rotatePosition, translatePosition, makeCrossProduct, calculateVectorLength, makeScalarProduct, generateRandomDisplacement, generateRandomRotation
 
     # start mutations
     for label in mutation.keys():

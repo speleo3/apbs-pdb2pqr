@@ -37,7 +37,6 @@
 #   Journal of Chemical Theory and Computation, 7, 525-537 (2011)
 #-------------------------------------------------------------------------------------------------------
 import sys
-import lib
 revision = 182
 
 
@@ -225,6 +224,7 @@ def getDeterminantSection(protein, verbose=False):
     prints out the pka-section of the result
     """
     # getting the same order as in propka2.0
+    from . import lib
     residue_list = lib.residueList("propka1")
     str  = "%s\n" % ( getDeterminantsHeader() )
 
@@ -250,6 +250,7 @@ def getSummarySection(protein, verbose=False):
     prints out the pka-section of the result
     """
     # getting the same order as in propka2.0
+    from . import lib
     residue_list = lib.residueList("propka1")
     str  = "%s\n" % ( getSummaryHeader() )
     # printing pKa summary

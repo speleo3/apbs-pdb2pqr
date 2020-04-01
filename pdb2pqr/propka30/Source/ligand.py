@@ -40,7 +40,7 @@
 
 
 import sys, pdb, protonate, lib, bonds
-from vector_algebra import *
+from .vector_algebra import *
 pka_print = lib.pka_print
 
 all_sybyl_types = [
@@ -185,7 +185,7 @@ class ligand:
             atom.residue = self
 
         #self.remove_ions()
-        self.configuration_keys = atoms[0].configurations.keys()
+        self.configuration_keys = list(atoms[0].configurations.keys())
         
         # create ligand residue objects
         self.ligand_residues = []

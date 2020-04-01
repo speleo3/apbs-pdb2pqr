@@ -40,7 +40,7 @@
 #-------------------------------------------------------------------------------------------------------
 
 import sys
-from lib import residueList, atomList, pka_print
+from .lib import residueList, atomList, pka_print
 
 
 #    NOTE:

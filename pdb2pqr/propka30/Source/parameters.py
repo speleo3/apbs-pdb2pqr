@@ -37,10 +37,10 @@
 #   Journal of Chemical Theory and Computation, 7, 525-537 (2011)
 #-------------------------------------------------------------------------------------------------------
 import math
-import lib
+from . import lib
 pka_print = lib.pka_print
 import sys, os
-from calculator import calculate
+from .calculator import calculate
 
 
 def pKa_mod(resName):

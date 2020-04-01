@@ -37,7 +37,7 @@
 #   Journal of Chemical Theory and Computation, 7, 525-537 (2011)
 #-------------------------------------------------------------------------------------------------------
 import string, sys, copy
-import lib
+from . import lib
 pka_print = lib.pka_print
 
 excluded_resNames = ["H2O", "HOH", "SO4", "PO4", "PEG", "EPE", "NAG", "TRS"]
@@ -109,7 +109,7 @@ def readPDB(filename, file=None, verbose=True, tags = ["ATOM"]):
       for chainID in sorted( atoms.keys() ):
         for key in atoms[chainID]["keys"]:
           for atom in atoms[chainID][key]:
-            str = "%s%4d  %4s%3d%7s" % (atom.resName, atom.resNumb, atom.name, len(atom.configurations.keys()), atom.type)
+            str = "%s%4d  %4s%3d%7s" % (atom.resName, atom.resNumb, atom.name, len(atom.configurations), atom.type)
             for key in atom.configurations.keys():
               str += "%5s" % (key)
             pka_print(str)

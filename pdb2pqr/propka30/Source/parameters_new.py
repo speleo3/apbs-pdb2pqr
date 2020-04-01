@@ -37,7 +37,7 @@
 #   Journal of Chemical Theory and Computation, 7, 525-537 (2011)
 #-------------------------------------------------------------------------------------------------------
 
-from lib import pka_print
+from .lib import pka_print
 
 def resName2Type(resName=None):
     """
@@ -368,7 +368,7 @@ def getHydrogenBondParameters(type=None):
 
 
             # updating parameter matrix to full matrix
-            keys = parameters.keys()
+            keys = list(parameters.keys())
             for key1 in keys:
               for key2 in keys:
                 if key2 not in parameters[key1]:

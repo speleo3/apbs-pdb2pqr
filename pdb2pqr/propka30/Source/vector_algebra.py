@@ -37,7 +37,7 @@
 #   Journal of Chemical Theory and Computation, 7, 525-537 (2011)
 #-------------------------------------------------------------------------------------------------------
 import math, sys
-import lib
+from . import lib
 pka_print = lib.pka_print
 
 
@@ -275,9 +275,9 @@ class multi_vector:
 
         # store vectors for all configurations of atoms
         if atom1!=0:
-            self.keys = lib.get_sorted_configurations(atom1.configurations.keys())
+            self.keys = lib.get_sorted_configurations(list(atom1.configurations.keys()))
             if atom2!=0:
-                keys2 = lib.get_sorted_configurations(atom2.configurations.keys())
+                keys2 = lib.get_sorted_configurations(list(atom2.configurations.keys()))
                 if self.keys != keys2:
                     pka_print("ERROR: Inequivalent configurations for atoms, please correct your pdbfile to single configuration")
                     pka_print("%s\n%s" % (atom1, atom2))

@@ -39,9 +39,9 @@
 #-------------------------------------------------------------------------------------------------------
 
 
-from vector_algebra import *
-import bonds, pdb
-from lib import pka_print
+from .vector_algebra import *
+from . import bonds, pdb
+from .lib import pka_print
 
 class Protonate:
     """ Protonates atoms using VSEPR theory """
